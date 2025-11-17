@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shang - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="#home" class="logo">Shang</a>
+        <nav>
+            <a href="#about">Về tôi</a>
+            <a href="#skills">Kỹ năng</a>
+            <a href="#projects">Dự án</a>
+            <a href="#contact">Liên hệ</a>
+        </nav>
+    </header>
+
+<section id="home" class="hero">
+    <div class="hero-image-container">
+        <img src="image.png" alt="Ảnh chân dung của Shang" class="hero-image">
+    </div>
+    <div class="hero-content">
+        <h1>Chào, tôi là <span class="highlight-text">Shang</span></h1>
+        <p class="tagline" data-text="Nhà Phát Triển Full-Stack Tối Giản">Nhà Phát Triển Full-Stack Tối Giản</p>
+        <a href="#projects" class="cta-button">Xem Công Việc Của Tôi</a>
+    </div>
+</section>
+
+    <section id="about" class="section about-me">
+        <div class="reveal-content">
+            <h2>Về tôi</h2>
+            <p>Tôi là một nhà phát triển phần mềm có trụ sở tại Hà Nội, đam mê tạo ra các giải pháp web **tối giản** và **hiệu quả**. Với kinh nghiệm từ Frontend đến Backend, tôi luôn hướng tới việc xây dựng trải nghiệm người dùng mượt mà và code sạch.</p>
+            <blockquote>"Giá trị nằm ở tính năng, chứ không phải độ phức tạp."</blockquote>
+        </div>
+    </section>
+
+<section id="skills" class="section skills">
+    <div class="reveal-content">
+        <h2>Kỹ năng cốt lõi</h2>
+        
+        <div class="skills-category">
+            <h3>Frontend Development</h3>
+            <div class="skills-grid">
+                <div class="skill-item" data-skill="React"><i class="fab fa-react"></i><span>React & Redux</span></div>
+                <div class="skill-item" data-skill="Next"><i class="fas fa-layer-group"></i><span>Next.js (SSR/SSG)</span></div>
+                <div class="skill-item" data-skill="CSS"><i class="fab fa-css3-alt"></i><span>Tailwind & SCSS</span></div>
+                <div class="skill-item" data-skill="JS"><i class="fab fa-js-square"></i><span>TypeScript/ES6+</span></div>
+            </div>
+        </div>
+
+        <div class="skills-category">
+            <h3>Backend & Database</h3>
+            <div class="skills-grid">
+                <div class="skill-item" data-skill="Node"><i class="fab fa-node-js"></i><span>Node.js & Express</span></div>
+                <div class="skill-item" data-skill="Python"><i class="fab fa-python"></i><span>Python (Django/Flask)</span></div>
+                <div class="skill-item" data-skill="Mongo"><i class="fas fa-database"></i><span>MongoDB & Mongoose</span></div>
+                <div class="skill-item" data-skill="SQL"><i class="fas fa-server"></i><span>PostgreSQL & SQL</span></div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<section id="projects" class="section projects">
+    <div class="reveal-content">
+        <h2>Dự án tiêu biểu</h2>
+        
+        <div class="project-card-grid">
+            <div class="project-card" data-category="Full-Stack">
+                <div class="project-header">
+                    <h3>Web bán hàng</h3>
+                    <div class="project-links">
+                        <a href="#" target="_blank" title="Demo Live"><i class="fas fa-external-link-alt"></i></a>
+                        <a href="#" target="_blank" title="Mã nguồn"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <p>Nền tảng web bán hàng tích hợp API thanh toán VNPAY và login google & facebook</p>
+                <div class="tags"><span>#PHP</span><span>#HTML</span><span>#MySQL</span><span>#JS</span></div>
+            </div>
+            
+            <div class="project-card" data-category="Frontend">
+                <div class="project-header">
+                    <h3>Quản lý nhà thuốc</h3>
+                    <div class="project-links">
+                        <a href="#" target="_blank" title="Demo Live"><i class="fas fa-external-link-alt"></i></a>
+                        <a href="#" target="_blank" title="Mã nguồn"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <p>Ứng dụng cơ bản cho nhà thuốc.</p>
+                <div class="tags"><span>#C# winform</span></div>
+            </div>
+            
+            <div class="project-card" data-category="Backend">
+                <div class="project-header">
+                    <h3>Phần mềm nhà trường</h3>
+                    <div class="project-links">
+                        <a href="#" target="_blank" title="Mã nguồn"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <p>Quản lý học sinh tích hợp điểm số xuất bảng điểm.</p>
+                <div class="tags"><span>#Java</span> <span>#SQL</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="section contact">
+    <div class="reveal-content">
+        <h2>Hãy cùng <span id="contact-dynamic-text">tạo dự án mới</span>!</h2>
+        <p class="contact-slogan">Tôi luôn sẵn sàng cho những ý tưởng sáng tạo và những thử thách mới.</p>
+        
+        <form class="contact-form">
+            <input type="text" placeholder="Tên của bạn" required>
+            <input type="email" placeholder="Email (quan trọng nhất)" required>
+            <textarea placeholder="Nội dung bạn muốn thảo luận (mô tả dự án, cơ hội việc làm, v.v.)" rows="5" required></textarea>
+            <button type="submit" class="cta-button">Gửi tin nhắn</button>
+        </form>
+        
+        <div class="social-links">
+            <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" target="_blank" title="Twitter/X"><i class="fab fa-twitter"></i></a>
+            <a href="mailto:your.email@example.com" title="Email trực tiếp"><i class="fas fa-envelope"></i></a>
+        </div>
+    </div>
+</section>
+
+    <script src="script.js"></script>
+</body>
+</html>

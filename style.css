@@ -1,0 +1,436 @@
+/* --- 1. BIẾN VÀ THIẾT LẬP CƠ BẢN --- */
+:root {
+    --primary-color: #4f46e5; /* Màu Indigo/Tím */
+    --secondary-color: #3f3f46; /* Màu Xám tối */
+    --bg-color: #f9fafb; /* Màu nền sáng nhẹ */
+    --text-color: #1f2937;
+    --border-radius: 8px;
+    --transition-speed: 0.3s;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+/* --- 2. THANH ĐIỀU HƯỚNG --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    z-index: 1000;
+    background-color: transparent;
+    transition: background-color var(--transition-speed);
+}
+
+.navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.navbar nav a {
+    margin-left: 2rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+/* --- 3. PHẦN CHUNG (SECTIONS) --- */
+.section {
+    padding: 6rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+/* HIỆU ỨNG REVEAL (JS) */
+.reveal-content {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- 4. PHẦN HERO --- */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #eef2ff;
+    overflow: hidden;
+    position: relative;
+    padding: 2rem 5%;
+}
+.hero-image {
+    width: 100%; 
+    height: 100%;
+    object-fit: cover; 
+    filter: grayscale(20%) brightness(1.05); 
+    transition: filter 0.5s ease;
+}
+
+.hero-image-container:hover .hero-image {
+    filter: grayscale(0%) brightness(1);
+}
+
+
+.hero-content {
+    z-index: 10; 
+    max-width: 700px;
+}
+
+.hero h1 {
+    font-size: 3.5rem; 
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+/* Responsive cho desktop */
+@media (min-width: 768px) {
+    .hero {
+        flex-direction: row; /* Xếp ảnh và text cạnh nhau trên desktop */
+        text-align: left;
+        padding: 0 5%; /* Căn chỉnh lại padding */
+    }
+
+    .hero-image-container {
+        margin-right: 4rem; /* Khoảng cách giữa ảnh và text */
+        margin-bottom: 0;
+        min-width: 300px; /* Đảm bảo kích thước tối thiểu */
+        max-width: 450px;
+    }
+
+    .hero-content {
+        text-align: left;
+    }
+
+    .hero h1 {
+        font-size: 4.5rem; /* Kích thước lớn hơn trên desktop */
+    }
+}
+
+.highlight-text {
+    color: var(--primary-color);
+}
+
+.tagline {
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    position: relative;
+    /* Hiệu ứng gõ chữ sẽ được xử lý bằng JS/CSS Animation */
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: transform var(--transition-speed), background-color var(--transition-speed);
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+}
+
+.cta-button:hover {
+    background-color: #3730a3;
+    transform: translateY(-3px);
+}
+
+/* --- 5. PHẦN ABOUT ME --- */
+.about-me {
+    text-align: center;
+}
+
+.about-me p {
+    font-size: 1.15rem;
+    max-width: 800px;
+    margin: 0 auto 1.5rem auto;
+}
+
+blockquote {
+    font-style: italic;
+    color: var(--primary-color);
+    border-left: 4px solid var(--primary-color);
+    padding-left: 1.5rem;
+    margin: 2rem auto;
+    max-width: 700px;
+    font-size: 1.25rem;
+}
+
+/* --- 6. PHẦN KỸ NĂNG --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.skill-item {
+    background-color: white;
+    padding: 2rem 1rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.skill-item i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.skill-item span {
+    display: block;
+    font-weight: 600;
+}
+
+/* --- 7. PHẦN DỰ ÁN --- */
+.project-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border-top: 5px solid var(--primary-color);
+    transition: transform 0.3s ease-out;
+}
+
+.project-card:hover {
+    transform: scale(1.02);
+}
+
+.project-card h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+.tags span {
+    display: inline-block;
+    margin-right: 0.5rem;
+    margin-top: 1rem;
+    background-color: #e0e7ff;
+    color: var(--primary-color);
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* --- 8. PHẦN LIÊN HỆ --- */
+.contact {
+    text-align: center;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto 2rem auto;
+    gap: 1rem;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    padding: 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.social-links a {
+    font-size: 2rem;
+    margin: 0 0.75rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+.social-links a:hover {
+    transform: translateY(-5px);
+}
+/* ... CSS giữ nguyên phần Variables, Reset, Navbar ... */
+
+/* --- 6. PHẦN KỸ NĂNG ĐƯỢC CẬP NHẬT --- */
+
+.skills-category {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.skills-category h3 {
+    text-align: left;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    border-left: 5px solid var(--primary-color);
+    padding-left: 10px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.skill-item {
+    /* Giữ nguyên style skill-item từ bản trước */
+    background-color: white;
+    padding: 2rem 1rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    position: relative;
+    overflow: hidden; /* Quan trọng cho hiệu ứng đổ bóng */
+}
+
+/* HIỆU ỨNG THÊM: Màu nền nhẹ khi hover */
+.skill-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(79, 70, 229, 0.15); /* Shadow với màu chính */
+    background-color: #f0f3ff; /* Nền nhẹ khi hover */
+}
+
+/* --- 7. PHẦN DỰ ÁN ĐƯỢC CẬP NHẬT --- */
+
+.project-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    /* Giữ nguyên style project-card từ bản trước */
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid var(--primary-color); /* Thay đổi từ border-top */
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.project-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.project-header h3 {
+    margin: 0;
+    color: var(--primary-color);
+}
+
+.project-links a {
+    font-size: 1.2rem;
+    margin-left: 1rem;
+    color: var(--secondary-color);
+    transition: color 0.2s;
+}
+
+.project-links a:hover {
+    color: var(--primary-color);
+}
+
+/* --- 8. PHẦN LIÊN HỆ ĐƯỢC CẬP NHẬT --- */
+
+.contact-slogan {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+}
+
+.contact-form {
+    /* Giữ nguyên style contact-form từ bản trước */
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto 3rem auto;
+    gap: 1.2rem;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+}
+
+.social-links {
+    margin-top: 1.5rem;
+}
+
+.social-links a {
+    font-size: 2.5rem;
+    margin: 0 1rem;
+    color: var(--secondary-color);
+    transition: transform 0.3s ease-in-out, color 0.3s;
+}
+
+.social-links a:hover {
+    transform: translateY(-8px) scale(1.1);
+    color: var(--primary-color);
+}
